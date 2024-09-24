@@ -1,6 +1,7 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import StoreProvider from "@/app/StoreProvider";
 
 export default async function LocaleLayout({
                                              children,
@@ -15,8 +16,10 @@ export default async function LocaleLayout({
     <html lang={locale}>
     <body>
     <NextIntlClientProvider messages={messages}>
-      <LocaleSwitcher />
-      {children}
+      <StoreProvider>
+        <LocaleSwitcher/>
+        {children}
+      </StoreProvider>
     </NextIntlClientProvider>
     </body>
     </html>
