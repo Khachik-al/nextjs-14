@@ -6,5 +6,17 @@
   "locale": {
     "en": "English",
     "ru": "Russian"
+  },
+  "ssgPage": {
+    "title": "Static site generation page",
+    "home": "Home"
+  },
+  "ssrPage": {
+    "title": "Server site generation page",
+    "home": "Home"
+  },
+  "isrPage": {
+    "title": "Incremental Static Regeneration",
+    "home": "Home"
   }
 }
