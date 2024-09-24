@@ -1,12 +1,20 @@
-import {useTranslations} from 'next-intl';
-import {Link} from '@/i18n/routing';
+import {dehydrate, HydrationBoundary, QueryClient} from '@tanstack/react-query'
+import {fetchPosts} from "@/services";
+import {SsrPosts} from "@/components/SsrPosts";
 
-export default function HomePage() {
-  const t = useTranslations('ssrPage');
+
+export default async function SsrPage() {
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery({
+    queryKey: ['posts'],
+    queryFn: fetchPosts,
+  })
+
   return (
-    <div>
-      <h1>{t('title')}</h1>
-      <Link href="/">{t('home')}</Link>
-    </div>
-  );
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <SsrPosts/>
+    </HydrationBoundary>
+  )
 }
+
+

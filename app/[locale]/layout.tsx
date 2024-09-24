@@ -2,6 +2,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import StoreProvider from "@/app/StoreProvider";
+import ReactQueryProvider from "@/app/ReactQueryProvider";
 
 export default async function LocaleLayout({
                                              children,
@@ -17,8 +18,10 @@ export default async function LocaleLayout({
     <body>
     <NextIntlClientProvider messages={messages}>
       <StoreProvider>
-        <LocaleSwitcher/>
-        {children}
+        <ReactQueryProvider>
+          <p><LocaleSwitcher/></p>
+          {children}
+        </ReactQueryProvider>
       </StoreProvider>
     </NextIntlClientProvider>
     </body>
