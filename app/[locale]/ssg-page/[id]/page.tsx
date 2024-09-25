@@ -3,6 +3,7 @@ import {unstable_setRequestLocale} from "next-intl/server";
 import {fetchPost} from "@/services/postServices/fetchPost";
 import {fetchPosts} from "@/services/postServices/fetchPosts";
 import {Locale} from "@/i18n/routing";
+import style from './page.module.scss';
 
 export const revalidate = 1
 export const dynamicParams = true
@@ -24,9 +25,9 @@ export default async function PostItem({params}: IPostItemProps) {
   const post: Post = await fetchPost(params.id)
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
+    <div className={style['post-item']}>
+      <h1 className={style['post-item__title']}>{post.title}</h1>
+      <p className={style['post-item__body']}>{post.body}</p>
     </div>
   );
 }

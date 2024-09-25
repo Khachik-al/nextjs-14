@@ -1,9 +1,11 @@
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-import LocaleSwitcher from "@/components/LocaleSwitcher";
-import StoreProvider from "@/app/StoreProvider";
-import ReactQueryProvider from "@/app/ReactQueryProvider";
-import {routing} from "@/i18n/routing";
+import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
+import StoreProvider from '@/app/StoreProvider';
+import ReactQueryProvider from '@/app/ReactQueryProvider';
+import {Locale, routing} from '@/i18n/routing';
+import './globals.scss';
+import Header from "@/components/Header/Header";
+import React from "react";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -11,11 +13,12 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
                                              children,
-                                             params: {locale}
+                                             params: {locale},
                                            }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: Locale };
 }) {
+  unstable_setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
@@ -24,7 +27,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages}>
       <StoreProvider>
         <ReactQueryProvider>
-          <p><LocaleSwitcher/></p>
+          <Header locale={locale}/>
           {children}
         </ReactQueryProvider>
       </StoreProvider>

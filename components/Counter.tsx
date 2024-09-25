@@ -9,7 +9,7 @@ export default function Counter() {
   const countState = useSelector((state: RootState) => state.counter.value);
   return (
     <div>
-      <h2>counter Value with redux</h2>
+      <h2>Redux counter</h2>
       <button onClick={() => dispatch(decrement(1))}>-</button>
       {' '}<span> {countState} </span>{' '}
       <button onClick={() => dispatch(increment(1))}>+</button>

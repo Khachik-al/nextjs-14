@@ -1,10 +1,10 @@
 import {useTranslations} from 'next-intl';
-import {Link, Locale} from '@/i18n/routing';
-import Counter from "@/components/Counter";
+import Counter from '@/components/Counter';
+import styles from './page.module.scss';
 import {unstable_setRequestLocale} from "next-intl/server";
 
 interface IHomePageProps {
-  params: { locale: Locale }
+  params: { locale: string };
 }
 
 export default function HomePage({params}: IHomePageProps) {
@@ -12,12 +12,11 @@ export default function HomePage({params}: IHomePageProps) {
   const t = useTranslations('HomePage');
 
   return (
-    <div>
+    <div className={styles["homepage"]}>
       <h1>{t('title')}</h1>
-      <div><Link href="/ssg-page">{t('ssg-page')}</Link></div>
-      <div><Link href="/ssr-page">{t('ssr-page')}</Link></div>
-      <div><Link href="/isr-page">{t('isr-page')}</Link></div>
-      <Counter/>
+      <main>
+        <Counter/>
+      </main>
     </div>
   );
 }

@@ -1,0 +1,33 @@
+@import '../../variables';
+
+.ssg-post-list {
+  padding: $pagePadding;
+
+  &__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: 15px;
+    border: 1px solid $itemBorderColor;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+  }
+}

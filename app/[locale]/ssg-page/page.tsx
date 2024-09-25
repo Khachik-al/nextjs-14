@@ -1,7 +1,7 @@
 import {Locale} from '@/i18n/routing';
-import {SsgPostLIst} from "@/components/SsgPostLIst";
+import {SsgPostLIst} from "@/components/SsgPostList/SsgPostLIst";
 import {fetchPosts} from "@/services/postServices/fetchPosts";
-import {Post} from "@/types";
+import {Page, Post} from "@/types";
 import {unstable_setRequestLocale} from "next-intl/server";
 
 
@@ -15,8 +15,8 @@ export default async function SsgPage({params}: SsgPageProps) {
 
 
   return (
-    <div>
-      <SsgPostLIst posts={posts}/>
-    </div>
+    <main>
+      <SsgPostLIst posts={posts} page={Page.SSG}/>
+    </main>
   );
 }

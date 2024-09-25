@@ -1,6 +1,6 @@
 import {Locale} from '@/i18n/routing';
-import {SsgPostLIst} from "@/components/SsgPostLIst";
-import {Post} from "@/types";
+import {SsgPostLIst} from "@/components/SsgPostList/SsgPostLIst";
+import {Page, Post} from "@/types";
 import {unstable_setRequestLocale} from "next-intl/server";
 import {fetchPosts} from "@/services/postServices/fetchPosts";
 
@@ -16,7 +16,7 @@ export default async function IsrPage({params}: IIsrPageProps) {
 
   return (
     <div>
-      <SsgPostLIst posts={posts}/>
+      <SsgPostLIst posts={posts} page={Page.ISR}/>
     </div>
   );
 }
