@@ -2,7 +2,7 @@
 import {useTranslations} from "next-intl";
 import Link from "next/link";
 import {Page, Post} from "@/types";
-import style from './ssgPostList.module.scss';
+import style from './SsgPostList.module.scss';
 
 interface ISsgPostProps {
   posts: Post[],
