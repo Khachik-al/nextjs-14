@@ -1,5 +1,5 @@
 import {dehydrate, HydrationBoundary, QueryClient} from '@tanstack/react-query'
-import {fetchPosts} from "@/services";
+import {fetchPosts} from "@/services/postServices/fetchPosts";
 import {SsrPostList} from "@/components/SsrPostList";
 import {Locale} from "@/i18n/routing";
 import {unstable_setRequestLocale} from "next-intl/server";

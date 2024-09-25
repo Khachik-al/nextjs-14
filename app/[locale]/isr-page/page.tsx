@@ -2,7 +2,7 @@ import {Locale} from '@/i18n/routing';
 import {SsgPostLIst} from "@/components/SsgPostLIst";
 import {Post} from "@/types";
 import {unstable_setRequestLocale} from "next-intl/server";
-import {fetchPosts} from "@/services";
+import {fetchPosts} from "@/services/postServices/fetchPosts";
 
 
 interface IIsrPageProps {

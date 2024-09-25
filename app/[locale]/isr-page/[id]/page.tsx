@@ -1,6 +1,7 @@
 import {Post} from "@/types";
 import {unstable_setRequestLocale} from "next-intl/server";
-import {fetchPost, fetchPosts} from "@/services";
+import {fetchPost} from "@/services/postServices/fetchPost";
+import {fetchPosts} from "@/services/postServices/fetchPosts";
 import {Locale} from "@/i18n/routing";
 
 export const revalidate = 1

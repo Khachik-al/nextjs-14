@@ -1,6 +1,6 @@
 "use client"
 import {useQuery} from "@tanstack/react-query";
-import {fetchPosts} from "@/services";
+import {fetchPosts} from "@/services/postServices/fetchPosts";
 import {useTranslations} from "next-intl";
 import Link from "next/link";
 import {Post} from "@/types";
