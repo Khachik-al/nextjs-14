@@ -2,6 +2,7 @@
 
 **Project** is a [Next.js](https://nextjs.org/) application built using TypeScript, and implements various rendering methods such as Server-Side Rendering (SSR), Static Site Generation (SSG), and Incremental Static Regeneration (ISR), but with next-intl it is problem to generate Static Site Generation (SSG) pages separetly so it will generate now all pages in Static Site Generation (SSG).
 Problem is not solved because of less of time, but you can see functionality in each page.
+There are also many omissions and incomplete parts, but I think it's enough for chechikng skills before interview.
 
 ## Demo
 [Project](https://nextjs-14-ten-smoky.vercel.app/)
