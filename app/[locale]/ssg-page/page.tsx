@@ -1,17 +1,22 @@
-import {useTranslations} from 'next-intl';
-import {Link, routing} from '@/i18n/routing';
+import {Locale} from '@/i18n/routing';
+import {SsgPostLIst} from "@/components/SsgPostLIst";
+import {fetchPosts} from "@/services";
+import {Post} from "@/types";
+import {unstable_setRequestLocale} from "next-intl/server";
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+
+interface SsgPageProps {
+  params: { locale: Locale }
 }
 
-export default function HomePage() {
-  const t = useTranslations('ssgPage');
+export default async function SsgPage({params}: SsgPageProps) {
+  unstable_setRequestLocale(params.locale);
+  const posts: Post[] = await fetchPosts()
+
 
   return (
     <div>
-      <h1>{t('title')}</h1>
-      <Link href="/">{t('home')}</Link>
+      <SsgPostLIst posts={posts}/>
     </div>
   );
 }

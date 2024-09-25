@@ -6,7 +6,7 @@ import Link from "next/link";
 import {Post} from "@/types";
 
 
-export function SsrPosts() {
+export function SsrPostList() {
   const t = useTranslations('ssrPage');
   const {data} = useQuery<Post[]>({queryKey: ['posts'], queryFn: fetchPosts})
 

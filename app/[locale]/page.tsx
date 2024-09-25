@@ -1,8 +1,14 @@
 import {useTranslations} from 'next-intl';
-import {Link} from '@/i18n/routing';
+import {Link, Locale} from '@/i18n/routing';
 import Counter from "@/components/Counter";
+import {unstable_setRequestLocale} from "next-intl/server";
 
-export default function HomePage() {
+interface IHomePageProps {
+  params: { locale: Locale }
+}
+
+export default function HomePage({params}: IHomePageProps) {
+  unstable_setRequestLocale(params.locale);
   const t = useTranslations('HomePage');
 
   return (

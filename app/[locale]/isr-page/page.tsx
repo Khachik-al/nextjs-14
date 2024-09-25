@@ -1,12 +1,22 @@
-import {useTranslations} from 'next-intl';
-import {Link} from '@/i18n/routing';
+import {Locale} from '@/i18n/routing';
+import {SsgPostLIst} from "@/components/SsgPostLIst";
+import {Post} from "@/types";
+import {unstable_setRequestLocale} from "next-intl/server";
+import {fetchPosts} from "@/services";
 
-export default function HomePage() {
-  const t = useTranslations('isrPage');
+
+interface IIsrPageProps {
+  params: { locale: Locale }
+}
+
+export default async function IsrPage({params}: IIsrPageProps) {
+  unstable_setRequestLocale(params.locale);
+
+  const posts: Post[] = await fetchPosts()
+
   return (
     <div>
-      <h1>{t('title')}</h1>
-      <Link href="/">{t('home')}</Link>
+      <SsgPostLIst posts={posts}/>
     </div>
   );
 }

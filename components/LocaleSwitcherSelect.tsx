@@ -6,7 +6,6 @@ import {Locale, usePathname, useRouter} from '@/i18n/routing';
 type Props = {
   children: ReactNode;
   defaultValue: string;
-  label: string;
 };
 
 export default function LocaleSwitcherSelect({
